@@ -188,7 +188,7 @@ function PostCard({ post, dbUserId }: { post: Post; dbUserId: string | null }) {
                   </Avatar>
                   <div className="flex-1">
                     <Textarea
-                      placeholder="Write a comment..."
+                      placeholder="Nào nào, Không trêu bạn..."
                       value={newComment}
                       onChange={(e) => setNewComment(e.target.value)}
                       className="min-h-[80px] resize-none"
@@ -201,11 +201,11 @@ function PostCard({ post, dbUserId }: { post: Post; dbUserId: string | null }) {
                         disabled={!newComment.trim() || isCommenting}
                       >
                         {isCommenting ? (
-                          "Posting..."
+                          "Chờ xíu..."
                         ) : (
                           <>
                             <SendIcon className="size-4" />
-                            Comment
+                            Bình luận
                           </>
                         )}
                       </Button>
@@ -217,7 +217,7 @@ function PostCard({ post, dbUserId }: { post: Post; dbUserId: string | null }) {
                   <SignInButton mode="modal">
                     <Button variant="outline" className="gap-2">
                       <LogInIcon className="size-4" />
-                      Sign in to comment
+                      Đăng nhập để bình luận
                     </Button>
                   </SignInButton>
                 </div>

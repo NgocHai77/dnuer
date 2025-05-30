@@ -11,7 +11,7 @@ export function NotificationsSkeleton() {
       <Card>
         <CardHeader className="border-b">
           <div className="flex items-center justify-between">
-            <CardTitle>Notifications</CardTitle>
+            <CardTitle>Thông Báo</CardTitle>
             <Skeleton className="h-4 w-20" />
           </div>
         </CardHeader>

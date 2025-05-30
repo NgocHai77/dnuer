@@ -48,7 +48,7 @@ function MobileNavbar() {
             <Button variant="ghost" className="flex items-center gap-3 justify-start" asChild>
               <Link href="/">
                 <HomeIcon className="w-4 h-4" />
-                Home
+                Trang Chủ
               </Link>
             </Button>
 
@@ -57,26 +57,26 @@ function MobileNavbar() {
                 <Button variant="ghost" className="flex items-center gap-3 justify-start" asChild>
                   <Link href="/notifications">
                     <BellIcon className="w-4 h-4" />
-                    Notifications
+                    Thông Báo
                   </Link>
                 </Button>
                 <Button variant="ghost" className="flex items-center gap-3 justify-start" asChild>
                   <Link href="/profile">
                     <UserIcon className="w-4 h-4" />
-                    Profile
+                    Trang Cá Nhân
                   </Link>
                 </Button>
                 <SignOutButton>
                   <Button variant="ghost" className="flex items-center gap-3 justify-start w-full">
                     <LogOutIcon className="w-4 h-4" />
-                    Logout
+                    Đăng Xuất
                   </Button>
                 </SignOutButton>
               </>
             ) : (
               <SignInButton mode="modal">
                 <Button variant="default" className="w-full">
-                  Sign In
+                  Đăng Nhập
                 </Button>
               </SignInButton>
             )}

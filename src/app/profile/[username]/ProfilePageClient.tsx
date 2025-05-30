@@ -111,17 +111,17 @@ function ProfilePageClient({
                   <div className="flex justify-between mb-4">
                     <div>
                       <div className="font-semibold">{user._count.following.toLocaleString()}</div>
-                      <div className="text-sm text-muted-foreground">Following</div>
+                      <div className="text-sm text-muted-foreground">Đang theo dõi</div>
                     </div>
                     <Separator orientation="vertical" />
                     <div>
                       <div className="font-semibold">{user._count.followers.toLocaleString()}</div>
-                      <div className="text-sm text-muted-foreground">Followers</div>
+                      <div className="text-sm text-muted-foreground">Người theo dõi</div>
                     </div>
                     <Separator orientation="vertical" />
                     <div>
                       <div className="font-semibold">{user._count.posts.toLocaleString()}</div>
-                      <div className="text-sm text-muted-foreground">Posts</div>
+                      <div className="text-sm text-muted-foreground">Bài viết</div>
                     </div>
                   </div>
                 </div>
@@ -129,12 +129,12 @@ function ProfilePageClient({
                 {/* "FOLLOW & EDIT PROFILE" BUTTONS */}
                 {!currentUser ? (
                   <SignInButton mode="modal">
-                    <Button className="w-full mt-4">Follow</Button>
+                    <Button className="w-full mt-4">Theo dõi</Button>
                   </SignInButton>
                 ) : isOwnProfile ? (
                   <Button className="w-full mt-4" onClick={() => setShowEditDialog(true)}>
                     <EditIcon className="size-4 mr-2" />
-                    Edit Profile
+                    Chỉnh sửa trang cá nhân
                   </Button>
                 ) : (
                   <Button
@@ -188,7 +188,7 @@ function ProfilePageClient({
                data-[state=active]:bg-transparent px-6 font-semibold"
             >
               <FileTextIcon className="size-4" />
-              Posts
+              Bài viết
             </TabsTrigger>
             <TabsTrigger
               value="likes"
@@ -196,7 +196,7 @@ function ProfilePageClient({
                data-[state=active]:bg-transparent px-6 font-semibold"
             >
               <HeartIcon className="size-4" />
-              Likes
+              Thích
             </TabsTrigger>
           </TabsList>
 
@@ -224,11 +224,11 @@ function ProfilePageClient({
         <Dialog open={showEditDialog} onOpenChange={setShowEditDialog}>
           <DialogContent className="sm:max-w-[500px]">
             <DialogHeader>
-              <DialogTitle>Edit Profile</DialogTitle>
+              <DialogTitle>Thêm phụ kiện nào</DialogTitle>
             </DialogHeader>
             <div className="space-y-4 py-4">
               <div className="space-y-2">
-                <Label>Name</Label>
+                <Label>Tên</Label>
                 <Input
                   name="name"
                   value={editForm.name}
@@ -237,7 +237,7 @@ function ProfilePageClient({
                 />
               </div>
               <div className="space-y-2">
-                <Label>Bio</Label>
+                <Label>Giới thiệu tí nhỉ</Label>
                 <Textarea
                   name="bio"
                   value={editForm.bio}
@@ -247,7 +247,7 @@ function ProfilePageClient({
                 />
               </div>
               <div className="space-y-2">
-                <Label>Location</Label>
+                <Label>Em nhà đâu đấy em!</Label>
                 <Input
                   name="location"
                   value={editForm.location}
@@ -256,7 +256,7 @@ function ProfilePageClient({
                 />
               </div>
               <div className="space-y-2">
-                <Label>Website</Label>
+                <Label>Nhả cái fb, gmail, không cái gì liên lạc được ra đây</Label>
                 <Input
                   name="website"
                   value={editForm.website}
@@ -267,9 +267,9 @@ function ProfilePageClient({
             </div>
             <div className="flex justify-end gap-3">
               <DialogClose asChild>
-                <Button variant="outline">Cancel</Button>
+                <Button variant="outline">Hủy</Button>
               </DialogClose>
-              <Button onClick={handleEditSubmit}>Save Changes</Button>
+              <Button onClick={handleEditSubmit}>Lưu</Button>
             </div>
           </DialogContent>
         </Dialog>

@@ -15,7 +15,7 @@ async function DesktopNavbar() {
       <Button variant="ghost" className="flex items-center gap-2" asChild>
         <Link href="/">
           <HomeIcon className="w-4 h-4" />
-          <span className="hidden lg:inline">Home</span>
+          <span className="hidden lg:inline">Trang Chủ</span>
         </Link>
       </Button>
 
@@ -24,7 +24,7 @@ async function DesktopNavbar() {
           <Button variant="ghost" className="flex items-center gap-2" asChild>
             <Link href="/notifications">
               <BellIcon className="w-4 h-4" />
-              <span className="hidden lg:inline">Notifications</span>
+              <span className="hidden lg:inline">Thông Báo</span>
             </Link>
           </Button>
           <Button variant="ghost" className="flex items-center gap-2" asChild>
@@ -34,14 +34,14 @@ async function DesktopNavbar() {
               }`}
             >
               <UserIcon className="w-4 h-4" />
-              <span className="hidden lg:inline">Profile</span>
+              <span className="hidden lg:inline">Trang Cá Nhân</span>
             </Link>
           </Button>
           <UserButton />
         </>
       ) : (
         <SignInButton mode="modal">
-          <Button variant="default">Sign In</Button>
+          <Button variant="default">Đăng Nhập</Button>
         </SignInButton>
       )}
     </div>

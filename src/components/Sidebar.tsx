@@ -41,12 +41,12 @@ async function Sidebar() {
               <div className="flex justify-between">
                 <div>
                   <p className="font-medium">{user._count.following}</p>
-                  <p className="text-xs text-muted-foreground">Following</p>
+                  <p className="text-xs text-muted-foreground">Đang theo dõi</p>
                 </div>
                 <Separator orientation="vertical" />
                 <div>
                   <p className="font-medium">{user._count.followers}</p>
-                  <p className="text-xs text-muted-foreground">Followers</p>
+                  <p className="text-xs text-muted-foreground">Người theo dõi</p>
                 </div>
               </div>
               <Separator className="my-4" />
@@ -81,20 +81,20 @@ const UnAuthenticatedSidebar = () => (
   <div className="sticky top-20">
     <Card>
       <CardHeader>
-        <CardTitle className="text-center text-xl font-semibold">Welcome Back!</CardTitle>
+        <CardTitle className="text-center text-xl font-semibold">🌻Dnuer về nhà🌻</CardTitle>
       </CardHeader>
       <CardContent>
         <p className="text-center text-muted-foreground mb-4">
-          Login to access your profile and connect with others.
+          Còn chờ gì nữa, về nhà rồi thì "Vào" đi thôi!
         </p>
         <SignInButton mode="modal">
           <Button className="w-full" variant="outline">
-            Login
+            Đăng Nhập
           </Button>
         </SignInButton>
         <SignUpButton mode="modal">
           <Button className="w-full mt-2" variant="default">
-            Sign Up
+            Đăng Xuất
           </Button>
         </SignUpButton>
       </CardContent>

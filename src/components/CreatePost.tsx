@@ -49,7 +49,7 @@ function CreatePost() {
               <AvatarImage src={user?.imageUrl || "/avatar.png"} />
             </Avatar>
             <Textarea
-              placeholder="What's on your mind?"
+              placeholder="Nghĩ gì thì nói mau !!!"
               className="min-h-[100px] resize-none border-none focus-visible:ring-0 p-0 text-base"
               value={content}
               onChange={(e) => setContent(e.target.value)}
@@ -81,7 +81,7 @@ function CreatePost() {
                 disabled={isPosting}
               >
                 <ImageIcon className="size-4 mr-2" />
-                Photo
+                Ảnh
               </Button>
             </div>
             <Button
@@ -92,12 +92,12 @@ function CreatePost() {
               {isPosting ? (
                 <>
                   <Loader2Icon className="size-4 mr-2 animate-spin" />
-                  Posting...
+                  Chờ xíu...
                 </>
               ) : (
                 <>
                   <SendIcon className="size-4 mr-2" />
-                  Post
+                  Đăng
                 </>
               )}
             </Button>
