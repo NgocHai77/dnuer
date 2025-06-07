@@ -5,35 +5,35 @@ import { useState } from "react";
 import { Card, CardContent } from "./ui/card";
 import { Avatar, AvatarImage } from "./ui/avatar";
 import { Textarea } from "./ui/textarea";
-import { ImageIcon, Loader2Icon, SendIcon } from "lucide-react";
+import { ImageIcon, Loader2Icon, SendIcon, Smile, Gift } from "lucide-react";
 import { Button } from "./ui/button";
 import { createPost } from "@/actions/post.action";
 import toast from "react-hot-toast";
 import ImageUpload from "./ImageUpload";
+import Picker from "@emoji-mart/react"; // Đúng cho v5
 
 function CreatePost() {
   const { user } = useUser();
   const [content, setContent] = useState("");
   const [imageUrl, setImageUrl] = useState("");
+  const [gifUrl, setGifUrl] = useState(""); // Thêm state cho GIF
   const [isPosting, setIsPosting] = useState(false);
   const [showImageUpload, setShowImageUpload] = useState(false);
+  const [showEmojiPicker, setShowEmojiPicker] = useState(false);
 
   const handleSubmit = async () => {
-    if (!content.trim() && !imageUrl) return;
-
+    if (!content.trim() && !imageUrl && !gifUrl) return;
     setIsPosting(true);
     try {
       const result = await createPost(content, imageUrl);
       if (result?.success) {
-        // reset the form
         setContent("");
         setImageUrl("");
+        setGifUrl("");
         setShowImageUpload(false);
-
         toast.success("Post created successfully");
       }
     } catch (error) {
-      console.error("Failed to create post:", error);
       toast.error("Failed to create post");
     } finally {
       setIsPosting(false);
@@ -70,6 +70,26 @@ function CreatePost() {
             </div>
           )}
 
+          {/* Hiển thị GIF nếu có */}
+          {gifUrl && (
+            <div className="my-2">
+              <img src={gifUrl} alt="GIF" className="max-h-40 rounded" />
+            </div>
+          )}
+
+          {/* Emoji Picker */}
+          {showEmojiPicker && (
+            <div className="absolute z-50 mt-2">
+              <Picker
+                onEmojiSelect={(emoji: any) => {
+                  setContent(content + (emoji?.native || ""));
+                  setShowEmojiPicker(false);
+                }}
+                theme="auto"
+              />
+            </div>
+          )}
+
           <div className="flex items-center justify-between border-t pt-4">
             <div className="flex space-x-2">
               <Button
@@ -83,11 +103,37 @@ function CreatePost() {
                 <ImageIcon className="size-4 mr-2" />
                 Ảnh
               </Button>
+              {/* Nút emoji */}
+              <Button
+                type="button"
+                variant="ghost"
+                size="sm"
+                className="text-muted-foreground hover:text-primary"
+                disabled={isPosting}
+                onClick={() => setShowEmojiPicker((v) => !v)}
+              >
+                <Smile className="size-4 mr-2" />
+                Emoji
+              </Button>
+              {/* Nút GIF */}
+              <Button
+                type="button"
+                variant="ghost"
+                size="sm"
+                className="text-muted-foreground hover:text-primary"
+                disabled={isPosting}
+                onClick={() => {
+                  toast("Chức năng chọn GIF sẽ được bổ sung trong tương lai!", { icon: "🎬" });
+                }}
+              >
+                <Gift className="size-4 mr-2" />
+                GIF
+              </Button>
             </div>
             <Button
               className="flex items-center"
               onClick={handleSubmit}
-              disabled={(!content.trim() && !imageUrl) || isPosting}
+              disabled={(!content.trim() && !imageUrl && !gifUrl) || isPosting}
             >
               {isPosting ? (
                 <>
@@ -107,4 +153,5 @@ function CreatePost() {
     </Card>
   );
 }
+
 export default CreatePost;

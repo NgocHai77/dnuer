@@ -57,7 +57,7 @@ function NotificationsPage() {
       <Card>
         <CardHeader className="border-b">
           <div className="flex items-center justify-between">
-            <CardTitle>Notifications</CardTitle>
+            <CardTitle>Thông báo</CardTitle>
             <span className="text-sm text-muted-foreground">
               {notifications.filter((n) => !n.read).length} unread
             </span>
@@ -66,7 +66,7 @@ function NotificationsPage() {
         <CardContent className="p-0">
           <ScrollArea className="h-[calc(100vh-12rem)]">
             {notifications.length === 0 ? (
-              <div className="p-4 text-center text-muted-foreground">No notifications yet</div>
+              <div className="p-4 text-center text-muted-foreground">Không có thông báo</div>
             ) : (
               notifications.map((notification) => (
                 <div

@@ -14,6 +14,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { useTheme } from "next-themes";
+import ModeToggle from "./ModeToggle";
 
 const fetcher = (url: string) => fetch(url).then(res => res.json());
 
@@ -25,6 +26,9 @@ function MobileNavbar() {
 
   return (
     <div className="flex md:hidden items-center space-x-2">
+      {/* Nút chuyển dark mode nằm bên trái */}
+      <ModeToggle />
+      {/* Nút menu */}
       <Sheet open={showMobileMenu} onOpenChange={setShowMobileMenu}>
         <SheetTrigger asChild>
           <Button variant="ghost" size="icon">
