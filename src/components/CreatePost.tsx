@@ -1,7 +1,7 @@
 "use client";
 
 import { useUser } from "@clerk/nextjs";
-import { useState } from "react";
+import { useState, FC } from "react";
 import { Card, CardContent } from "./ui/card";
 import { Avatar, AvatarImage } from "./ui/avatar";
 import { Textarea } from "./ui/textarea";
@@ -12,7 +12,13 @@ import toast from "react-hot-toast";
 import ImageUpload from "./ImageUpload";
 import Picker from "@emoji-mart/react"; // Đúng cho v5
 
-function CreatePost() {
+interface PageProps {
+  params: {
+    username: string;
+  };
+}
+
+const ProfilePage: FC<PageProps> = ({ params }) => {
   const { user } = useUser();
   const [content, setContent] = useState("");
   const [imageUrl, setImageUrl] = useState("");
@@ -152,6 +158,6 @@ function CreatePost() {
       </CardContent>
     </Card>
   );
-}
+};
 
-export default CreatePost;
+export default ProfilePage;
